@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html manifest="hs.manifest">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="generator" content="HyperStudio Author 1.0 (156), www.mackiev.com"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+        
+    <link rel="apple-touch-icon-precomposed" href="icon.png" />
+    <!--[if IE]>
+
+    <script type="text/javascript" src="data/engine/js/lib/cfinstall.js"></script>
+
+    <style>
+        .chromeFrameInstallDefaultStyle {
+            width: 800px;
+            border: 0px solid blue;
+        }
+    </style>
+
+    <div id="prompt"></div>
+
+    <![endif]-->
+    <title></title>
+    <script type="text/javascript" src="data/engine/js/lib/prototype.js"></script>
+    <script type="text/javascript" src="data/engine/js/lib/scriptaculous.js"></script>
+    <script type="text/javascript" src="data/engine/js/lib/effects.js"></script>
+    <script type="text/javascript" src="data/engine/js/lib/builder.js"></script>
+    <script type="text/javascript" src="data/engine/js/lib/controls.js"></script>
+    <script type="text/javascript" src="data/engine/js/lib/sound.js"></script>
+    <script type="text/javascript" src="data/engine/js/lib/dragdrop.js"></script>
+    <script type="text/javascript" src="data/engine/js/lib/slider.js"></script>
+
+    <script type="text/javascript" src="data/engine/js/stack.js"></script>
+    <script type="text/javascript" src="data/engine/js/player.js"></script>
+    <script type="text/javascript" src="data/engine/js/transitions.js"></script>
+    <script type="text/javascript" src="data/engine/js/speedtracker.js"></script>
+    <script type="text/javascript" src="data/engine/js/main.js"></script>
+    <script type="text/javascript" src="data/engine/js/ui.js"></script>
+
+    <link href="./data/engine/templates/css/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body align="center"
+      style="margin: 0px; padding: 0px; background: url(data/engine/templates/img/background.png) repeat;">
+
+<img id="logo" src="data/engine/templates/img/loading_bg.png"
+     style="z-index:997;width:200px;height:94px;position:absolute;left:298px;top:200px;" alt=""/>
+
+<div id="loadStatus"
+     style="z-index:998;width:207px;height:81px;position:absolute;left:298px;top:200px;margin-top:10px;padding-left:50px;padding-top:5px;text-align:left;">
+    <img src="data/engine/templates/img/spin.gif" alt="loading" align="left" style="margin-right:15px;"/> <span
+        id="loadNotice"
+        style="display:inline-block;margin-top:10px;font:16px/16pt 'Lucida Grande','Lucida Sans Unicode',Helvetica;">Loading...</span>
+</div>
+
+<div id="loadStatusCache"
+     style="border: 1px solid #5F5F5F;z-index:996;width:520px;height:3px;position:fixed;left:50%;top:2px;display:none;background-color: white;
+            border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -khtm-border-radius: 4px;
+            -webkit-box-shadow: 0px 0px 3px white;box-shadow: 0px 0px 3px white;">
+    <div id="progressStatusCache" style="height:2px;width: 0px;border-top: solid 1px rgba(255, 255, 255, 0.4);background-color: #3366cc;
+            border-radius:3px 0 0 3px;-moz-border-radius:3px 0 0 3px;-webkit-border-radius:3px 0 0 3px;-khtm-border-radius:3px 0 0 3px;">
+    </div>
+</div>
+
+<div class="container" style="margin:5px auto;padding:0; border:none;width:810px;height:690px;" id="wrapperTable">
+    <div style="background: #222; height: 602px; width: 111px; float: left; display: none;" id="scrollThumbs">
+        <div style="clear: both;"></div>
+    </div>
+
+    <div style="width: 800px; height: 600px; position:absolute; top:20px; float: left; overflow: hidden !important;"
+         id="contPane">
+        <div id="showedImg">
+
+
+        </div>
+    </div>
+    <div id="mainbar" style="position:absolute;top:15px;margin-left:644px;overflow:hidden;height:67px;display:none;"><a
+            href="http://www.hyperstudio.com/" target="_blank">
+        <div id="logo"
+             style="display:none;float:left; width:156px; height:67px; background:url('./data/engine/templates/img/hslogo.png') top left no-repeat"></div>
+    </a></div>
+</div>
+<script type="text/javascript">
+    document.observe('dom:loaded', function () {
+        config = {
+            isResizeWindow:(function () {
+                return Try.these(function () {
+                    return false;
+                }, function () {
+                    return false;
+                })
+            })(),
+            isWidget:(function () {
+                return Try.these(function () {
+                    return false;
+                }, function () {
+                    return false;
+                })
+            })(),
+            isFrameEnabled:(function () {
+                return Try.these(function () {
+                    return true;
+                }, function () {
+                    return true;
+                })
+            })(),
+            homeStackName:(function () {
+                return Try.these(function () {
+                    return 'liamsprojectcopy';
+                }, function () {
+                    return "homestack";
+                })
+            })()
+        };
+        checkConfig(config);
+        loadStatusCache();
+        new addHomeScreenInfo();
+        setTimeout(function () {
+            loadxml(config);
+        }, 500);
+
+    });
+</script>
+</body>
+</html>

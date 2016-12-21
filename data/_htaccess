@@ -1,0 +1,6 @@
+AddType audio/mp4          aac
+AddType audio/mp4          .aac
+AddType video/mp4          .m4v
+AddType text/cache-manifest .manifest
+
+

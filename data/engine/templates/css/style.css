@@ -1,0 +1,423 @@
+/**
+ *Copyright (c) 2014 The Software MacKiev Company. All rights reserved.
+ *For details, see us at www.hyperstudio.com
+**/
+
+@CHARSET "UTF-8";
+
+* {
+    /*-moz-user-select: -moz-none; */
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+object {
+    outline: none;
+}
+
+.track {
+    width: 80px;
+    height: 100%;
+    width: 15px;
+    float: right;
+    background: url(../img/scrollTrack.png);
+    vertical-align: bottom;
+}
+
+.handle {
+    height: 37px;
+    width: 15px;
+    background: url(../img/scrollHandle.png);
+    font-size: 20px;
+    text-align: center;
+    z-index: 2;
+}
+
+.container {
+    background-color: #F5F5F5;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: #222 0 1px 10px;
+    -webkit-box-shadow: #222 0 1px 10px;
+    -o-box-shadow: #222 0 1px 10px;
+    box-shadow: #222 0 1px 10px;
+}
+
+.alert-button {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 30px;
+    color: #ccc;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: -webkit-gradient(linear, 0% 0%, 0% 50%, from(#afb0b0), to(#4e4f51)) repeat scroll 0 0 #000;
+    text-shadow: 0 -1px 1px #000, 0 1px 1px #ddd;
+    box-shadow: 0 1px 1px #433, 0 -1px 1px #fff;
+}
+
+.alert-cancel-button {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 30px;
+    color: #ccc;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: -webkit-gradient(linear, 0% 0%, 0% 50%, from(#BB686E), to(#711518)) repeat scroll 0 0 #711518;
+    text-shadow: 0 -1px 1px #000, 0 1px 1px #ddd;
+    box-shadow: 0 1px 1px #433, 0 -1px 1px #fff;
+}
+
+.alert-button:active, .alert-cancel-button:active {
+    background: -webkit-gradient(linear, 0% 0%, 0% 50%, from(#7d7d7d), to(#000000)) repeat scroll 0 0 #000000;
+}
+
+.play-button {
+    display: block;
+    background: url(../img/play-but.png) no-repeat 0 0 transparent;
+    cursor: pointer;
+    width: 82px;
+    height: 82px;
+    margin-left: 145px;
+    margin-top: 20px;
+    border: 0px none;
+}
+
+.play-button:active {
+    background: url(../img/play-but-act.png) no-repeat 4px center transparent;
+}
+
+.media-play-button {
+    position: absolute;
+    z-index: 9999999;
+    top: 50%;
+    margin-top: -215px;
+    left: 50%;
+    margin-left: -220px;
+    background: url(../img/play-up.png) no-repeat 0 0 transparent;
+    width: 439px;
+    height: 429px;
+    padding: 0;
+    border: none;
+}
+
+.media-play-button:active {
+    background: url(../img/play-down.png) no-repeat 0 0 transparent;
+}
+
+.hplink, [contenteditable="true"] * {
+    -moz-user-select: text;
+    -moz-user-modify: read-write;
+    -o-user-select: text;
+    -khtml-user-select: text;
+    -webkit-user-select: text;
+    /* cursor: pointer; */
+}
+
+.inactive {
+    outline: none;
+}
+
+#logpane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: scroll;
+    width: 200px;
+    height: 500px;
+
+    border: 5px solid #ffffff;
+    border-radius: 7px;
+    background-color: #000000;
+    color: #7fff00;
+    font-size: 12px;
+    font-family: "Courier New",serif;
+    letter-spacing: 1px;
+    text-align: left;
+    padding: 5px;
+    outline: none;
+}
+
+/*::selection {
+    background:transparent;
+    }*/
+
+
+/******************************************/
+
+/**
+ *
+ * Main addToHomeScreen container
+ *
+ */
+#addToHomeScreen {
+    z-index:9999;
+    -webkit-user-select:none;
+    user-select:none;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    -webkit-touch-callout:none;
+    touch-callout:none;
+    width:240px;
+    font-size:15px;
+    padding:5px 15px 5px 7px;
+    text-align:left;
+
+    font-family:helvetica;
+    background-image:-webkit-gradient(linear,0 0,0 100%,color-stop(0,#ffffff),color-stop(0.02,#F4F4F4),color-stop(0.98,#F4F4F4),color-stop(1,#DDDDDD));
+    border:1px solid #505050;
+    -webkit-border-radius:8px;
+    -webkit-background-clip:padding-box;
+    color:#000;
+    text-shadow:0 1px 0 rgba(255,255,255,0.75);
+    line-height:130%;
+    -webkit-box-shadow:0 1px 6px rgba(0,0,0,0.5);
+}
+
+#addToHomeScreen.addToHomeIpad {
+    width:424px; /* 378px */
+    font-size:14px;
+    /*padding:14px;*/
+}
+
+
+#addToHomeScreen.addToHomeAndroid {
+    padding: 5px 5px 5px 7px;
+}
+#addToHomeScreen.addToHomeAndroid.addToHomeWide div{
+    /*  padding-top: 42px;*/
+}
+
+/**
+ *
+ * The 'wide' class is added when the popup contains the touch icon
+ *
+ */
+#addToHomeScreen.addToHomeWide {
+    width:296px;
+}
+
+#addToHomeScreen.addToHomeIpad.addToHomeWide {
+    width:340px;
+    font-size:16px;
+}
+
+#addToHomeScreen.addToHomeIpad.addToHomeWide div{
+    padding-top: 11px;
+}
+
+/**
+ *
+ * The balloon arrow
+ *
+ */
+#addToHomeScreen .addToHomeArrow {
+    position:absolute;
+    background-image:-webkit-gradient(linear,0 0,0 100%,color-stop(0,#ffffff),color-stop(0.02,#F4F4F4),color-stop(0.98,#F4F4F4),color-stop(1,#DDDDDD));
+    border-width:0 1px 1px 0;
+    border-style:solid;
+    border-color:#505050;
+    width:13px;
+    height:13px;
+    -webkit-transform:rotateZ(45deg);
+    bottom:-9px;
+    left:50%;
+    margin-left:-8px;
+    -webkit-box-shadow:inset -1px -1px 0 #a9a9a9;
+    -webkit-border-bottom-right-radius:2px;
+}
+
+/**
+ *
+ * The balloon arrow for iPad
+ *
+ */
+#addToHomeScreen.addToHomeIpad .addToHomeArrow {
+    -webkit-transform:rotateZ(-135deg);
+    background-image:-webkit-gradient(linear,0 0,100% 100%,color-stop(0,rgba(238,238,238,0)),color-stop(0.4,rgba(238,238,238,0)),color-stop(0.4,#eee));
+    -webkit-box-shadow:inset -1px -1px 0 #fff;
+    top:-8px;
+    bottom:auto;
+    left:23%;
+}
+
+/**
+ *
+ * The balloon arrow for Androind
+ *
+ */
+#addToHomeScreen.addToHomeAndroid .addToHomeArrow {
+    -webkit-transform:rotateZ(-135deg);
+    background-image:-webkit-gradient(linear,0 0,0 100%,color-stop(0,#ffffff),color-stop(0.2,F4F4F4),color-stop(0.4,#ddd));
+    -webkit-box-shadow:inset -1px -1px 0 #fff;
+    height: 60px; width: 60px;
+    top:-32px;
+    left:89%;
+}
+
+/**
+ *
+ * Close button
+ *
+ */
+#addToHomeScreen .addToHomeClose {
+    -webkit-box-sizing:border-box;
+    position:absolute;
+    right:4px;
+    top:4px;
+    width:20px;
+    height:20px;
+    background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYFJREFUeNqclFFHBFEUx6fZRCxDRCzz2mv0ll3zkFL2IbNEXyH6AC2Zh7VLVE/1AXrZt+yQIpuI9gMMS/S6T/saS0T0P5yb6+y5M6PD72Hm3PO/59xz71m4uLr0ciwEO6DC3z/gGUxcAYuO/zFIwIbDn4EOSKXDF99V8AAGOWIe+wa8tuoSDMAbaHrlrckxgSbYL8gqL9u+FIxFZu+gB2aKwDc453O0M41twUQE3YIzsC9ESewQtMGNiEmMYKiUego2wcgSJbEDcA/WQVcpPaRrEyllrYAh2LVEqZtPLPYK1pS4iARrjsMm0RewzaJegRhZzedSXLYsNlyV9042jASnLidoWWcmz1SzqW+VY9sXN+DRKnNYQnTk80PPhKOnNMCcqRFtK+97Yu5hRzhpwhwrDQhY9ATsKUn8TZuUMzKLIsd1MqLX4h/F3sm3fATG/3jLGcfODYdPsMW7lTVa2+BYdR7OuIOtgmzHvGau266JnTLU5TpYsu4mdfjDtdOvAAMAO0RW8CAR2E8AAAAASUVORK5CYII=);
+    background-size:21px 20px;
+    background-repeat:no-repeat;
+    background-position: top left;
+}
+
+/**
+ *
+ * The '+' icon, displayed only on iOS < 4.2
+ *
+ */
+#addToHomeScreen .addToHomePlus {
+    font-weight:bold;
+    font-size:1.3em;
+}
+
+/**
+ *
+ * The 'share' icon, displayed only on iOS >= 4.2
+ *
+ */
+#addToHomeScreen .addToHomeShare {
+    display:inline-block;
+    width:18px;
+    height:15px;
+    background-repeat:no-repeat;
+    background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAeCAQAAADu6HTYAAADPElEQVR4Xq3TX2gcRRzA8e/M7mVv2+TSNpc/TZtrY6jUGqgaSAmEChKLrYK0YH0RFC2CSCkEfCghiKU04J8qNigq6os+iQV98MHWFwVBrQQRWs21lBw5cw3NNb1/udu72RGG5Y77IzXW77D7sAwf5scyYoL6BGXSDKFZwaGpLvIUaeoCkvX1MmsM0Ny6oRSQYOLuIS+YZOpfQdqslpUxcZrzTVAz4qPwW2O3CeIwC/RSzeY6Ow1QhUrkr+YOWfEKDkEP8Rij7CHKJmrFSDHBdwGEE5wiGChPN+PnT8VdRtEIl1d4gRj/1EVe5ZSBKGh8iqQpo/Fo5+3C/gz0MYg4zgwbqday1/Q4B8BGQ45d/Hi54lakCrU5obOcidJpu1+Lg9whjabyaOYLnrIBFFaRD+xe2ybMDWY66GmP/WA9cGfGp0CWhy0wkMN8inepFiH2rV1j0NQSNQbFLRQnS8/8YSDBBpadfv4CYDub2fmeHDNAsL1MBWUel0iA+Xik6eHcyvD3vAMSU1TGuA/YRS+dD7ovCQN43GKRFCU20Kd3V/avDVVyAZ5niTEuLA5/zBGWg9EEEhfJKN200Tat8CmRAQb9+wv7soPlHt2tQorsz1uPbr0HTY4sJwrH47zJZwABBAKLMBoQXepwgTwdHCo+fXMkQ4lrxEmQ5AaXipPqDY9V2vn09tgvTPI71EEGYxM+/uMJLJ4svpgaWGKOi/xKgmqLSUGSUd5f2vIVJ/CgBaTIUsZ7ZBsn0+NzfMOXLFCXQyTcybN6ep5ZZgUOHn7jpfUpsZshdugPGf+E5zjbyHTSRyQ8xfRPPM/s63RHeuknSoT22mjmmnAOIMkUZ6D1xSfPPAfd1WFKM3sO2CMaHx8M1NjnXKHaAGGkOW0C02WeYHUz4qMtx+w5gUDS8NckYe5lHsMYwCZEPyEEmjLDZFmAS7CDviMdxyTkMNVBKEmYLvbiQQBIBBbCQG04bGQvFWz6CfsCQLWCigILFwcfkGYBiOpbYuOizTAyYyDdCtrGaRG1LCkIgMYEFhI0WqQZoSlbGRyHKe4qOx7iv2bVQW9dp4dlM/x6kmwnWQcd/Q3FCqwTEiT5s+6D5v/pb0SSHyg7uhMWAAAAAElFTkSuQmCC);
+    background-size:18px 15px;
+    text-indent:-9999em;
+    overflow:hidden;
+}
+
+#addToHomeScreen .addToHomeShare.addToHomeShareOS7 {
+    width:11px;
+    background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAA1CAYAAAAtf5mbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1RUI0M0M4MjIzQjAxMUUzOENBNkMxNDM3RUEwMkQyMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1RUI0M0M4MzIzQjAxMUUzOENBNkMxNDM3RUEwMkQyMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjVFQjQzQzgwMjNCMDExRTM4Q0E2QzE0MzdFQTAyRDIxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjVFQjQzQzgxMjNCMDExRTM4Q0E2QzE0MzdFQTAyRDIxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+L0ol4AAAAShJREFUeNrs1r1qAkEYheHdsHgXuYOAfXoFbYRcQBCxECxEQVAQ/IEUgmIhWMSU6ZPKyptInc7WXmxkcxa+hRVE5k9dwxl4m3VGH8YRJ/C6oedotNAryqGt7Zs9OEI10RRl0SfKpAHWEFQ88ujLFmcLq6MZ8hPPdqiIvm1wNrAamgtqkHheElzBBmcKq6KFoEZomHht7QJnAqugd0G9of6JOdY4XVgZLQU1Rr0zc61wOrAX9CFrJqijsOYULnAN26OD/ArbGuuSuEfVXQs0PmCFntCvwbmMcM9oI0CnMM8QFY+fW/wlOR+E6Y7ojJnee3zFeeG/2zHdHbjUzh7tMA8/YYQRRhhhhBFGWHouite+EPKrJIwwwggjjDDCCLuTi2LIHVMYfwIMALAXMbbczCEAAAAAAElFTkSuQmCC);
+    background-size:11px 15px;
+}
+
+#addToHomeScreen .addToHomeShare.Android {
+    width:11px;
+    background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAA1CAYAAAAtf5mbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1RUI0M0M4MjIzQjAxMUUzOENBNkMxNDM3RUEwMkQyMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1RUI0M0M4MzIzQjAxMUUzOENBNkMxNDM3RUEwMkQyMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjVFQjQzQzgwMjNCMDExRTM4Q0E2QzE0MzdFQTAyRDIxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjVFQjQzQzgxMjNCMDExRTM4Q0E2QzE0MzdFQTAyRDIxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+L0ol4AAAAShJREFUeNrs1r1qAkEYheHdsHgXuYOAfXoFbYRcQBCxECxEQVAQ/IEUgmIhWMSU6ZPKyptInc7WXmxkcxa+hRVE5k9dwxl4m3VGH8YRJ/C6oedotNAryqGt7Zs9OEI10RRl0SfKpAHWEFQ88ujLFmcLq6MZ8hPPdqiIvm1wNrAamgtqkHheElzBBmcKq6KFoEZomHht7QJnAqugd0G9of6JOdY4XVgZLQU1Rr0zc61wOrAX9CFrJqijsOYULnAN26OD/ArbGuuSuEfVXQs0PmCFntCvwbmMcM9oI0CnMM8QFY+fW/wlOR+E6Y7ojJnee3zFeeG/2zHdHbjUzh7tMA8/YYQRRhhhhBFGWHouite+EPKrJIwwwggjjDDCCLuTi2LIHVMYfwIMALAXMbbczCEAAAAAAElFTkSuQmCC);
+    background-size:11px 15px;
+}
+
+
+#addToHomeScreen .addToHomeTouchIcon {
+    display:block;
+    float:left;
+    -webkit-border-radius:16px;
+    border-radius:16px;
+    -webkit-box-shadow:0 0  0 1px #aaa;
+    box-shadow:0 0  0 1px #aaa;
+    background-repeat:no-repeat;
+    width:80px; height:80px;
+    -webkit-background-size:80px 80px;
+    background-size:80px 80px;
+    margin:0 12px 0 0;
+    border:1px solid #fff;
+    -webkit-background-clip:padding-box;
+    background-clip:padding-box;
+}
+
+#createMessageBox.messageBoxContainer1 {
+    position         : relative;
+    display          : inline-block;
+    z-index          : 9999999;
+    vertical-align   : middle;
+    background-color : #ededed;
+    border           : 1px solid #c3c3c3;
+    top              : 50%;
+    margin-top       : -50px;
+    width            : 335px;
+    text-align       : right;
+    padding          : 25px 20px 20px 25px;
+}
+#createMessageBox.textContainer1 {
+    float       : left;
+    width       : 235px;
+    margin-left : 20px;
+    /*height:80px;" fix X2IBA-1361*/
+    font        : 12px arial, helvetica sans-serif;
+    text-align  : left;
+    color       : #363639;
+    word-break  : break-word;
+}
+#createMessageBox.messageBoxContainer2 {
+    position              : absolute;
+    z-index               : 9999999;
+    width                 : 420px;
+    height                : 160px;
+    top                   : 50%;
+    left                  : 50%;
+    margin-top            : -100px;
+    margin-left           : -230px;
+    padding               : 20px 20px 20px 0;
+    background-color      : #000;
+    border                : 2px solid #ddd;
+    -moz-border-radius    : 15px;
+    -webkit-border-radius : 15px;
+    -o-border-radius      : 15px;
+    -khtml-border-radius  : 15px;
+    -webkit-box-shadow    : #333 0 4px 5px;
+    opacity               : 0.9;
+}
+#createMessageBox.textContainer2 {
+    font-family : 'myriad pro', helvetica;
+    font-size   : 22px;
+    color       : #ddd;
+    width       : 300px;
+    height      : 100px;
+    float       : left;
+    margin-left : 60px;
+}
+#createMessageBox.messageBoxContainer3 {
+    position    : absolute;
+    z-index     : 9999999;
+    top         : 50%;
+    margin-top  : -100px;
+    left        : 50%;
+    margin-left : -186px;
+    background  : url(./data/engine/templates/img/taptoplay.png) no-repeat 0 0 transparent;
+    width       : 372px;
+    height      : 193px;
+    padding     : 20px 20px 20px 0;
+}
+#createMessageBox.textContainer3 {
+    float       : left;
+    width       : 300px;
+    margin-left : 30px;
+    margin-top  : 4px;
+    height      : 100px;
+    color       : #ddd;
+    font-size   : 18px;
+    font-family : 'myriad pro', helvetica;
+}
+/*
+@media (-webkit-min-device-pixel-ratio:2.0) {
+    #addToHomeScreen.addToHomeAndroid{
+        zoom: 2;
+    }
+}*/
